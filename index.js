@@ -1,16 +1,21 @@
 const telegraf = require('telegraf');
 const command = require('./enums/command');
 const {TOKEN_BOT} = require('./config');
+const dotenv = require('dotenv');
+dotenv.config();
+
 const bot = new telegraf(TOKEN_BOT);
 
-const express = require('express')
+const express = require('express');
 const app = express();
 
-app.get('/', function (req, res) {
+app.get('/test', function (req, res) {
     res.send('------------- SERVER START -------------')
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000, function(){
+    console.log("------------- SERVER START -------------");
+});
 
 /** INFO COMMANDS **/
 bot.command(command.INFOVIRUS, require('./controller/cmd_infovirus'));
@@ -26,8 +31,6 @@ bot.command(command.CMD_FAQ, require('./controller/cmd_faq'));
 
 /** GENERAL COMMANDS **/
 bot.command(command.CMD_HELP, require('./controller/cmd_help'));
-
-console.log(" ------------- SERVER START -------------  ");
 
 bot.start((message) => {
     console.info(`Started ${message.from.username}:`, message.from.id);
