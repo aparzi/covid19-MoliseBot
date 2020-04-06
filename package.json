@@ -4,7 +4,7 @@
   "description": "Bot di telegram per monitorare la situazione della regione Molise",
   "main": "index.js",
   "scripts": {
-    "debug": "nodemon --inspect index.js",
+    "debug": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -20,6 +20,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-winston": "^4.0.3",
+    "mongoose": "^5.9.7",
     "node-cron": "^2.0.3",
     "nodemon": "^2.0.2",
     "telegraf": "^3.37.0",

@@ -1,5 +1,5 @@
 const telegraf = require('telegraf');
-const {TOKEN_BOT} = require('../config');
+const {TOKEN_BOT} = require('../../config');
 const bot = new telegraf(TOKEN_BOT);
 
 const cmd_sintomi = async (ctx) => {
