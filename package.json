@@ -18,8 +18,11 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "express-winston": "^4.0.3",
     "nodemon": "^2.0.2",
-    "telegraf": "^3.37.0"
+    "telegraf": "^3.37.0",
+    "winston": "^3.2.1"
   },
   "engines": {
     "node": "10.16.3"

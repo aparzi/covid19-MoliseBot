@@ -3,6 +3,15 @@ const command = require('./enums/command');
 const {TOKEN_BOT} = require('./config');
 const bot = new telegraf(TOKEN_BOT);
 
+const express = require('express')
+const app = express();
+
+app.get('/', function (req, res) {
+    res.send('------------- SERVER START -------------')
+});
+
+app.listen(3000);
+
 /** INFO COMMANDS **/
 bot.command(command.INFOVIRUS, require('./controller/cmd_infovirus'));
 bot.command(command.INFOSINTOMI, require('./controller/cmd_infosintomi'));
