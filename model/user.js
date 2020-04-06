@@ -4,7 +4,7 @@ mongoose.set('useFindAndModify', false);
 
 // Schema per un utente
 const EventSchema = new Schema({
-    id: {type: Number, required: true}, // id dell'utente e chat
+    id_user: {type: Number, required: true}, // id dell'utente e chat
     first_name: {type: String, required: true}, // nome dell'utente
     last_name: {type: String, required: true}, // cognome dell'utente
     username: {type: String, required: true}, // username dell'utente
