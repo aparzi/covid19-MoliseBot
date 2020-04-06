@@ -198,4 +198,3 @@ fabric.properties
 package-lock.json
 /.idea/**
 
-.env
