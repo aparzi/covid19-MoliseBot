@@ -5,8 +5,13 @@ const User = require('../../model/user');
 
 const cron_scheda_riepilogativa = async (ctx) => {
     try {
+        console.info("INVIO SCHEDA RIEPILOGATIVA");
+
         const date = new Date().toISOString().split('T')[0].replace(/-/g, "");
         const file = `https://raw.githubusercontent.com/pcm-dpc/COVID-19/4591a825a0dae36635f4da3cc4e2f6247dd21958/schede-riepilogative/regioni/dpc-covid19-ita-scheda-regioni-${date}.pdf`;
+
+        console.info("DATA => ", date);
+        console.info("FILE => ", file);
 
         let users = await User.find({});
         await asyncForEach(users, async (user) => {

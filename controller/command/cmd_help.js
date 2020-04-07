@@ -1,7 +1,7 @@
 const cmd_help = async (ctx) => {
     try {
         const message = `Posso aiutarti a capire cosa è il nuovo coronavirus (Covid-19), quali sono le regole da rispettare e rimanere aggiornato sulla situazione per la regione Molise.
-Se vuoi inoltre, puoi controllarmi eseguendo questi comandi:
+Ci penserò io ad aggiornarti, inviandoti delle notifiche nel momento in cui ci sono aggiornamenti rilevamenti. Inoltre, puoi controllarmi eseguendo questi comandi:
         
 <b>INFO GENERALI</b>
 /infovirus - Breve intro sul virus
