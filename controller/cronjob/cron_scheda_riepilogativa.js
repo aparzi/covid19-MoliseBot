@@ -4,25 +4,28 @@ const telegraf = require('telegraf');
 const bot = new telegraf(process.env.TOKEN_BOT);
 const User = require('../../model/user');
 
-const cron_scheda_riepilogativa = async (ctx) => {
+const cron_scheda_riepilogativa = async () => {
+    let userIndex = undefined;
+
     try {
         console.info("INVIO SCHEDA RIEPILOGATIVA");
 
         const date = new Date().toISOString().split('T')[0].replace(/-/g, "");
-        const file = `https://raw.githubusercontent.com/pcm-dpc/COVID-19/4591a825a0dae36635f4da3cc4e2f6247dd21958/schede-riepilogative/regioni/dpc-covid19-ita-scheda-regioni-${date}.pdf`;
+        const file = `https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/schede-riepilogative/regioni/dpc-covid19-ita-scheda-regioni-${date}.pdf`;
 
         console.info("DATA => ", date);
         console.info("FILE => ", file);
 
         let users = await User.find({});
         await asyncForEach(users, async (user) => {
-            await bot.telegram.sendMessage(user.id_user, "Il seguente pdf rappresenta il bollettino nazionale, in cui è presente ovviamente il Molise. I dati sono rilasciati direttamente dalla Protezione Civile. 🤞🏻🤞🏻");
+            userIndex = user;
             await bot.telegram.sendDocument(user.id_user, file);
+            await bot.telegram.sendMessage(user.id_user, "Il documento inviato rappresenta il bollettino nazionale. I dati sono rilasciati direttamente dalla Protezione Civile. 🤞🏻🤞🏻");
         });
 
     } catch (error) {
         console.error("[ERROR] => ", error);
-        return ctx.reply('Non è stato possibile recuperare informazioni per tale richiesta! Riprova con un altro comando');
+        await bot.telegram.sendMessage(userIndex.id_user, 'Non è stato possibile recuperare il bollettino nazionale odierno. Scusami!!');
     }
 };
 

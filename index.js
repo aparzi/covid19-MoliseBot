@@ -42,10 +42,14 @@ bot.command(command.CMD_HELP, require('./controller/command/cmd_help'));
 bot.start(require('./controller/command/cmd_start'));
 
 /** CRONJOB **/
-cron.schedule('30 17 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
-cron.schedule('* * * * *', async function () {
-    console.info("----- ESEGUITO JOB [CHIAMATA TEST] ------");
-    await axios.get('https://bot-covid19-molise.herokuapp.com/test');
-});
+cron.schedule('20 9 * * *', require('./controller/cronjob/cron_test'));
+cron.schedule('30 17 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
+cron.schedule('40 17 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
+if (process.env.NODE_ENV == 'production') {
+    cron.schedule('* * * * *', async function () {
+        console.info("----- ESEGUITO JOB [CHIAMATA TEST] ------");
+        await axios.get('https://bot-covid19-molise.herokuapp.com/test');
+    });
+}
 
 bot.startPolling();
