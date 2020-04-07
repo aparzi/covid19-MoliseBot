@@ -25,7 +25,7 @@ const cron_scheda_riepilogativa = async () => {
 
     } catch (error) {
         console.error("[ERROR] => ", error);
-        await bot.telegram.sendMessage(userIndex.id_user, 'Non è stato possibile recuperare il bollettino nazionale odierno. Scusami!!');
+        await bot.telegram.sendMessage(userIndex.id_user, 'Non è stato possibile recuperare il bollettino nazionale odierno. Scusami!!!');
     }
 };
 
