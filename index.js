@@ -4,7 +4,7 @@ const {TOKEN_BOT} = require('./config');
 const dotenv = require('dotenv');
 const cron = require('node-cron');
 const mongoose = require('mongoose');
-const User = require('./model/user');
+const axios = require('axios');
 dotenv.config();
 
 const bot = new telegraf(TOKEN_BOT);
@@ -40,26 +40,13 @@ bot.command(command.CMD_FAQ, require('./controller/command/cmd_faq'));
 
 /** GENERAL COMMANDS **/
 bot.command(command.CMD_HELP, require('./controller/command/cmd_help'));
+bot.start(require('./controller/command/cmd_start'));
 
 /** CRONJOB **/
 cron.schedule('30 17 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
-
-bot.start(async (message) => {
-
-    const user = new User({
-        id_user: message.from.id,
-        first_name: message.from.first_name,
-        last_name: message.from.last_name,
-        username: message.from.username,
-        language_code: message.from.language_code,
-        is_bot: message.from.is_bot,
-    });
-
-    const filter = { id_user: user.id_user };
-    let userUpdated =  await User.findOneAndUpdate(filter, { upsert: true, new: true });
-
-    console.info(`Started ${message.from.username}:`, message.from.id);
-    return message.reply(`Ciao ${message.from.username}, posso aiutarti a rimanere aggiornato sulla situazione COVID-19 nella regione Molise. Scropri cosa posso fare /help` );
+cron.schedule('30 * * * *', async function () {
+    console.info("----- ESEGUITO JOB [CHIAMATA TEST] ------");
+    await axios.get('https://bot-covid19-molise.herokuapp.com/test');
 });
 
 bot.startPolling();
