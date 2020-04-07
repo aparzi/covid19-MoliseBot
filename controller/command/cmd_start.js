@@ -13,7 +13,7 @@ const cmd_start = async (ctx) => {
         });
 
         const filter = { id_user: user.id_user };
-        let userUpdated =  await User.findOneAndUpdate(filter, { upsert: true, new: true });
+        let userUpdated =  await User.findOneAndUpdate(filter, {$setOnInsert: user}, { upsert: true, new: true });
 
         console.info(`Started ${ctx.from.username}:`, ctx.from.id);
         return ctx.reply(`Ciao ${ctx.from.username}, posso aiutarti a rimanere aggiornato sulla situazione COVID-19 nella regione Molise. Scropri cosa posso fare /help` );
