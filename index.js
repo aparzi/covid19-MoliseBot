@@ -1,13 +1,12 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const telegraf = require('telegraf');
 const command = require('./enums/command');
-const {TOKEN_BOT} = require('./config');
-const dotenv = require('dotenv');
 const cron = require('node-cron');
 const mongoose = require('mongoose');
 const axios = require('axios');
-dotenv.config();
 
-const bot = new telegraf(TOKEN_BOT);
+const bot = new telegraf(process.env.TOKEN_BOT);
 
 const express = require('express');
 const app = express();
