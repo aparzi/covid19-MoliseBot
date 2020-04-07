@@ -44,7 +44,7 @@ bot.start(require('./controller/command/cmd_start'));
 
 /** CRONJOB **/
 cron.schedule('30 17 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
-cron.schedule('30 * * * *', async function () {
+cron.schedule('* * * * *', async function () {
     console.info("----- ESEGUITO JOB [CHIAMATA TEST] ------");
     await axios.get('https://bot-covid19-molise.herokuapp.com/test');
 });
