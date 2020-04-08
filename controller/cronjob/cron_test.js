@@ -2,6 +2,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 const telegraf = require('telegraf');
 const bot = new telegraf(process.env.TOKEN_BOT);
+const User = require('../../model/user');
+const axios = require('axios');
 
 const cron_test = async () => {
     let userIndex = undefined;

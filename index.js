@@ -42,7 +42,7 @@ bot.command(command.CMD_HELP, require('./controller/command/cmd_help'));
 bot.start(require('./controller/command/cmd_start'));
 
 /** CRONJOB **/
-cron.schedule('00 15 * * *', require('./controller/cronjob/cron_test'));
+cron.schedule('05 15 * * *', require('./controller/cronjob/cron_test'));
 cron.schedule('30 17 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
 cron.schedule('40 17 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
 if (process.env.NODE_ENV == 'production') {
