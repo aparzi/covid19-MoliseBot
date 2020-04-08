@@ -43,8 +43,8 @@ bot.start(require('./controller/command/cmd_start'));
 
 /** CRONJOB **/
 cron.schedule('15 09 * * *', require('./controller/cronjob/cron_test'));
-cron.schedule('15 18 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
-cron.schedule('20 18 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
+cron.schedule('20 18 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
+cron.schedule('30 18 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
 if (process.env.NODE_ENV == 'production') {
     cron.schedule('* * * * *', async function () {
         console.info("----- ESEGUITO JOB [CHIAMATA TEST] ------");
