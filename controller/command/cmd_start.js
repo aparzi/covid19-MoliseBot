@@ -15,8 +15,16 @@ const cmd_start = async (ctx) => {
         const filter = { id_user: user.id_user };
         let userUpdated =  await User.findOneAndUpdate(filter, {$setOnInsert: user}, { upsert: true, new: true });
 
-        console.info(`Started ${ctx.from.username}:`, ctx.from.id);
-        return ctx.reply(`Ciao ${ctx.from.username}, posso aiutarti a rimanere aggiornato sulla situazione COVID-19 nella regione Molise. Scropri cosa posso fare /help` );
+        console.info(`Started ${ctx.from.first_name}:`, ctx.from.id);
+
+        let pUser = '';
+        if (ctx.from.username) {
+            pUser = ctx.from.username
+        } else {
+            pUser = ctx.from.first_name
+        }
+
+        return ctx.reply(`Ciao ${pUser}, posso aiutarti a rimanere aggiornato sulla situazione COVID-19 nella regione Molise. Scropri cosa posso fare /help` );
 
     } catch (error) {
         console.error("[ERROR] => ", error);

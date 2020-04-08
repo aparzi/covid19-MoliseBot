@@ -13,7 +13,8 @@ Ci penserò io ad aggiornarti, inviandoti delle notifiche nel momento in cui ci 
 /raccomandazioni - Leggi le raccomandazioni da seguire
 /domandecomuni - Dai un'occhiata alle FAQ
 
-Mi raccommando comportati da cittadino responsabile per vincere insieme questa battaglia 🇮🇹💪🏻`;
+Se hai delle segnalazioni da fare, richieste particolari oppure altri tipi di comunicazioni, puoi rivolgerti al seguente indirizzo email: angeloparziale94@gmail.com.\n\n
+Mi raccommando comportati da cittadino responsabile per vincere insieme questa battaglia 🇮🇹💪🏻\n\n`;
 
         return await ctx.replyWithHTML(message);
     } catch (error) {
