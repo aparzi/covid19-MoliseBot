@@ -22,6 +22,8 @@ app.get('/test', function (req, res) {
     res.send('------------- SERVER START -------------')
 });
 
+app.get('bot//trigger/newfeature', require('./controller/cronjob/cron_new_features'));
+
 app.listen(process.env.PORT || 3000, function(){
     console.log("------------- SERVER START -------------");
 });

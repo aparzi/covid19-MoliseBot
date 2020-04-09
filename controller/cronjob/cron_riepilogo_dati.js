@@ -9,7 +9,7 @@ const cron_riepilogo_dati = async () => {
     try {
         console.info("INVIO RIEPILOGO DATI");
 
-        // Recuper tutti gli utenti da notificare
+        // Recupero tutti gli utenti da notificare
         let users = await User.find({});
 
         // Recuper i dati delle regioni e filtrandoli per la regione Molise
