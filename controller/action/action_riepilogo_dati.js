@@ -1,16 +1,10 @@
 const dotenv = require('dotenv');
 dotenv.config();
-const telegraf = require('telegraf');
-const bot = new telegraf(process.env.TOKEN_BOT);
-const User = require('../../model/user');
 const axios = require('axios');
 
-const cron_riepilogo_dati = async () => {
+const action_riepilogo_dati = async (ctx) => {
     try {
-        console.info("INVIO RIEPILOGO DATI");
-
-        // Recuper tutti gli utenti da notificare
-        let users = await User.find({});
+        console.info("RICHIESTA RIEPILOGO DATI");
 
         // Recuper i dati delle regioni e filtrandoli per la regione Molise
         const URL = `https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni-latest.json`;
@@ -35,33 +29,17 @@ const cron_riepilogo_dati = async () => {
             const tot_ospedalizzati = `🏨<b>TOTALE OSPEDALIZZATI</b> ${dati_molise.totale_ospedalizzati} \n`;
             const is_domiciliare = `🏠<b>ISOLAMENTO DOMICILIARE</b> ${dati_molise.isolamento_domiciliare}`;
 
-            await asyncForEach(users, async (user) => {
-                try {
-                    await bot.telegram.sendMessage(user.id_user, `${header}${subheader}${totali}${hr}${guariti}${deceduti}${hr}${ricoverati_sintomi}${terapia_intensiva}${tot_ospedalizzati}${is_domiciliare}`, {parse_mode: 'HTML'});
-                } catch (error) {
-                    console.error("[ ERRORE MESSAGGIO RIEPILOGO DATI ] => ", error);
-                    console.error("[ UTENTE NON NOTIFICATO ] => ", user);
-                }
-            });
+            await ctx.reply(`${header}${subheader}${totali}${hr}${guariti}${deceduti}${hr}${ricoverati_sintomi}${terapia_intensiva}${tot_ospedalizzati}${is_domiciliare}`, {parse_mode: 'HTML'});
+            await ctx.reply(`Il bollettino di cui sopra 👆🏻👆🏻 è quello più recente che sono riuscito a recuperare per quanto riguarda la regione Molise. 👍🏻👍🏻`);
+
         } else {
-            await asyncForEach(users, async (user) => {
-                try {
-                    await bot.telegram.sendMessage(user.id_user, 'I dati della regione Molise non sono al momento disponibile. Potrei inviarli in seguito');
-                } catch (error) {
-                    console.error("[ ERRORE MESSAGGIO DATI REGIONALI NON DISPONIBILI ] => ", error);
-                    console.error("[ UTENTE NON NOTIFICATO ] => ", user);
-                }
-            });
+            await ctx.reply('I dati della regione Molise non sono al momento disponibile. Potrei inviarli in seguito');
         }
+
     } catch (error) {
-        console.error("[ ERRORE GENERICO RIEPILOGO DATI ] => ", error);
+        console.error("[ERROR] => ", error);
+        await ctx.reply('Non è stato possibile recuperare l\'ultimo bollettino regionale. Scusami!!!');
     }
 };
 
-async function asyncForEach(array, callback) {
-    for (let index = 0; index < array.length; index++) {
-        await callback(array[index], index, array);
-    }
-}
-
-module.exports = cron_riepilogo_dati;
+module.exports = action_riepilogo_dati;

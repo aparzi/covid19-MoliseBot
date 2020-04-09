@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const telegraf = require('telegraf');
 const command = require('./enums/command');
+const action = require('./enums/action');
 const cron = require('node-cron');
 const mongoose = require('mongoose');
 const axios = require('axios');
@@ -41,6 +42,9 @@ bot.command(command.CMD_FAQ, require('./controller/command/cmd_faq'));
 bot.command(command.CMD_HELP, require('./controller/command/cmd_help'));
 bot.start(require('./controller/command/cmd_start'));
 
+/** DATA COMMANDS **/
+bot.command(command.DATA_LAST, require('./controller/command/cmd_last_data'));
+
 /** CRONJOB **/
 cron.schedule('15 09 * * *', require('./controller/cronjob/cron_test'));
 cron.schedule('20 18 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
@@ -51,5 +55,8 @@ if (process.env.NODE_ENV == 'production') {
         await axios.get('https://bot-covid19-molise.herokuapp.com/test');
     });
 }
+
+bot.action(action.NATIONAL_DATA, require('./controller/action/action_scheda_riepilogativa'));
+bot.action(action.REGIONAL_DATA, require('./controller/action/action_riepilogo_dati'));
 
 bot.startPolling();

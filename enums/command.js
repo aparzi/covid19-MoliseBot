@@ -1,7 +1,5 @@
 module.exports = {
 
-    /** DATA COMMANDS **/
-
     /** INFO COMMANDS **/
     INFOVIRUS: 'infovirus',
     INFOSINTOMI: 'infosintomi',
@@ -12,6 +10,9 @@ module.exports = {
     CMD_RACCOMANDAZIONI: 'raccomandazioni',
     CMD_FAQ: 'domandecomuni',
 
-    /** NORME COMMANDS **/
+    /** DATA COMMANDS **/
+    DATA_LAST: 'ultimidati',
+
+    /** GENERAL COMMANDS **/
     CMD_HELP: 'help',
 };

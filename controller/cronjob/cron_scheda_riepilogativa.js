@@ -5,8 +5,6 @@ const bot = new telegraf(process.env.TOKEN_BOT);
 const User = require('../../model/user');
 
 const cron_scheda_riepilogativa = async () => {
-    let userIndex = undefined;
-
     try {
         console.info("INVIO SCHEDA RIEPILOGATIVA");
 
@@ -18,14 +16,17 @@ const cron_scheda_riepilogativa = async () => {
 
         let users = await User.find({});
         await asyncForEach(users, async (user) => {
-            userIndex = user;
-            await bot.telegram.sendDocument(user.id_user, file);
-            await bot.telegram.sendMessage(user.id_user, "Il documento inviato rappresenta il bollettino nazionale. I dati sono rilasciati direttamente dalla Protezione Civile. 🤞🏻🤞🏻");
+            try {
+                await bot.telegram.sendDocument(user.id_user, file);
+                await bot.telegram.sendMessage(user.id_user, "Il documento inviato rappresenta il bollettino nazionale. I dati sono rilasciati direttamente dalla Protezione Civile. 🤞🏻🤞🏻");
+            } catch (error) {
+                console.error("[ ERRORE INVIO SCHEDA RIEPILOGATIVA ] => ", error);
+                console.error("[ UTENTE NON NOTIFICATO ] => ", user);
+            }
         });
 
     } catch (error) {
-        console.error("[ERROR] => ", error);
-        await bot.telegram.sendMessage(userIndex.id_user, 'Non è stato possibile recuperare il bollettino nazionale odierno. Scusami!!!');
+        console.error("[ ERRORE GENERICO SCHEDA RIEPILOGATIVA ] => ", error);
     }
 };
 
