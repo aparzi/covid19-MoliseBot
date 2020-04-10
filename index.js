@@ -12,17 +12,17 @@ const bot = new telegraf(process.env.TOKEN_BOT);
 const express = require('express');
 const app = express();
 
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
+/** MONGO CONNECTION **/
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.connection.on('connected', () => {
     console.info('Mongoose is connected!!!!')
 });
 
+/** EXPRESS API **/
 app.get('/test', function (req, res) {
     res.send('------------- SERVER START -------------')
 });
-
-app.get('/bot/trigger/newfeature', require('./controller/cronjob/cron_new_features'));
 
 app.listen(process.env.PORT || 3000, function(){
     console.log("------------- SERVER START -------------");
@@ -56,8 +56,15 @@ if (process.env.NODE_ENV == 'production') {
         console.info("----- ESEGUITO JOB [CHIAMATA TEST] ------");
         await axios.get('https://bot-covid19-molise.herokuapp.com/test');
     });
+
+    // Serve only the static files form the dist directory
+    app.use(express.static('./fe-backoffice/dist/'));
+    app.use('*', function (req, res) {
+        res.sendFile('./fe-backoffice/dist/fe-backoffice-covid19/index.html')
+    });
 }
 
+/** ACTION REGISTRER **/
 bot.action(action.NATIONAL_DATA, require('./controller/action/action_scheda_riepilogativa'));
 bot.action(action.REGIONAL_DATA, require('./controller/action/action_riepilogo_dati'));
 

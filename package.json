@@ -4,7 +4,7 @@
   "description": "Bot di telegram per monitorare la situazione della regione Molise",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js & (cd fe-backoffice && npm install && ng build --prod)",
     "debug": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
