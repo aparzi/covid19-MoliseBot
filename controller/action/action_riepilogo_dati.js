@@ -15,14 +15,14 @@ const action_riepilogo_dati = async (ctx) => {
 
         // Verifico che i dati della regione sono effettivamente presenti e notifico gli utenti
         if (dati_molise) {
-            const header = `❕❗️ BOLLETTINO MOLISE ORE 18 (Protezione Civile) ❕❗\n\n`;
-            const subheader = `Nelle ultime 24 ore nella regione Molise\n\n`;
+            const header = `❕❗️ BOLLETTINO DEI DATI ORE 18 (Protezione Civile) ❕❗\n\n`;
+            const subheader = `I dati aggiornati relativi alla regione Molise\n\n`;
             const totali = `🛑 <b>CASI TOTALI</b> ${dati_molise.totale_casi} \n ⭕️ <b>ATTUALMENTE POSITIVI</b> ${dati_molise.totale_positivi} \n 🧪 <b>TAMPONI EFFETTUATI</b> ${dati_molise.tamponi} \n 🆕 <b>NUOVI CASI</b> ${dati_molise.nuovi_positivi}`;
 
             const hr = `\n--------------------------------------\n`;
 
             const guariti = `✅ <b>DIMESSI E GUARITI</b> ${dati_molise.dimessi_guariti} \n`;
-            const deceduti = `⚰️ <b>DECESSI</b> ${dati_molise.deceduti}`;
+            const deceduti = `⚰️ <b>DECESSI TOTALI</b> ${dati_molise.deceduti}`;
 
             const ricoverati_sintomi = `🤒<b>RICOVERATI CON SINTOMI</b> ${dati_molise.ricoverati_con_sintomi} \n`;
             const terapia_intensiva = `🔴<b>TERAPIA INTENSIVA</b> ${dati_molise.terapia_intensiva} \n`;

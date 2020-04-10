@@ -3,8 +3,8 @@ const { Markup } = Telegraf;
 const action = require('../../enums/action');
 
 const inlineMessageDatiKeyboard = Markup.inlineKeyboard([
-    Markup.callbackButton('Dati nazionali', action.NATIONAL_DATA),
-    Markup.callbackButton('Dati regionali', action.REGIONAL_DATA)
+    Markup.callbackButton('Nazionali', action.NATIONAL_DATA),
+    Markup.callbackButton('Regionali', action.REGIONAL_DATA)
 ]).extra();
 
 const cmd_last_data = async (ctx) => {
