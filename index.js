@@ -56,12 +56,6 @@ if (process.env.NODE_ENV == 'production') {
         console.info("----- ESEGUITO JOB [CHIAMATA TEST] ------");
         await axios.get('https://bot-covid19-molise.herokuapp.com/test');
     });
-
-    // Serve only the static files form the dist directory
-    app.use(express.static(__dirname + '/ng-backoffice/dist/'));
-    app.use('*', function (req, res) {
-        res.sendFile(__dirname + '/ng-backoffice/dist/index.html')
-    });
 }
 
 /** ACTION REGISTRER **/
