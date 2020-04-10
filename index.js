@@ -58,9 +58,9 @@ if (process.env.NODE_ENV == 'production') {
     });
 
     // Serve only the static files form the dist directory
-    app.use(express.static('./ng-backoffice/dist/'));
+    app.use(express.static(__dirname + '/ng-backoffice/dist/'));
     app.use('*', function (req, res) {
-        res.sendFile('./ng-backoffice/dist/ng-backoffice-covid19/index.html')
+        res.sendFile(__dirname + '/ng-backoffice/dist/ng-backoffice-covid19/index.html')
     });
 }
 
