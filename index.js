@@ -64,5 +64,6 @@ if (process.env.NODE_ENV == 'production') {
 /** ACTION REGISTRER **/
 bot.action(action.NATIONAL_DATA, require('./controller/action/action_scheda_riepilogativa'));
 bot.action(action.REGIONAL_DATA, require('./controller/action/action_riepilogo_dati'));
+bot.action(action.PROVINCE_DATA, require('./controller/action/action_dati_province'));
 
 bot.startPolling();

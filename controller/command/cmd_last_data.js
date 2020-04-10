@@ -4,7 +4,8 @@ const action = require('../../enums/action');
 
 const inlineMessageDatiKeyboard = Markup.inlineKeyboard([
     Markup.callbackButton('Nazionali', action.NATIONAL_DATA),
-    Markup.callbackButton('Regionali', action.REGIONAL_DATA)
+    Markup.callbackButton('Regionali', action.REGIONAL_DATA),
+    Markup.callbackButton('Province', action.PROVINCE_DATA)
 ]).extra();
 
 const cmd_last_data = async (ctx) => {
