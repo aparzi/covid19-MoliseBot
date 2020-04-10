@@ -13,7 +13,7 @@ const cron_new_features = async () => {
 
         await asyncForEach(users, async (user) => {
             try {
-                await bot.telegram.sendMessage(user.id_user, `Hey 👋🏻🤗 volevo solo avvisarti che da ora potrai richiedere gli ultimi dati, rilasciati dalla protezione civile sia nazionali che regionali, utilizzando il comando <b>/ultimidati</b>`, {parse_mode: 'HTML'});
+                await bot.telegram.sendMessage(user.id_user, `Hey ${user.first_name} 👋🏻🤗 volevo solo avvisarti che da ora potrai richiedere il modulo per gli spostamenti digitando il comando <b>/modulospostamenti</b>`, {parse_mode: 'HTML'});
             } catch (error) {
                 console.error("[ ERRORE MESSAGGIO RIEPILOGO DATI ] => ", error);
                 console.error("[ UTENTE NON NOTIFICATO ] => ", user);

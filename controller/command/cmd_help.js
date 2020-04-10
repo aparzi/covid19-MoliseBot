@@ -9,6 +9,7 @@ Ci penserò io ad aggiornarti, inviandoti delle notifiche nel momento in cui ci 
 /infodiffusione - Diffusione del virus
 
 <b>NORMATIVE</b>
+/modulospostamenti - Compila online il modulo spostamenti
 /sintomi - Scopri cosa fare in caso di sintomi
 /raccomandazioni - Leggi le raccomandazioni da seguire
 /domandecomuni - Dai un'occhiata alle FAQ

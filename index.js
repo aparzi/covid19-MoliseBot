@@ -24,6 +24,8 @@ app.get('/test', function (req, res) {
     res.send('------------- SERVER START -------------')
 });
 
+app.get('/bot/trigger/newfeature', require('./controller/cronjob/cron_new_features'));
+
 app.listen(process.env.PORT || 3000, function(){
     console.log("------------- SERVER START -------------");
 });
@@ -38,6 +40,7 @@ bot.command(command.INFODIFFUSIONE, require('./controller/command/cmd_infodiffus
 bot.command(command.CMD_SINTOMI, require('./controller/command/cmd_sintomi'));
 bot.command(command.CMD_RACCOMANDAZIONI, require('./controller/command/cmd_raccomandazioni'));
 bot.command(command.CMD_FAQ, require('./controller/command/cmd_faq'));
+bot.command(command.CMD_MODULO_SPOSTAMENTI, require('./controller/command/cmd_modulo_spostamenti'));
 
 
 /** GENERAL COMMANDS **/

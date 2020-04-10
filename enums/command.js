@@ -9,6 +9,7 @@ module.exports = {
     CMD_SINTOMI: 'sintomi',
     CMD_RACCOMANDAZIONI: 'raccomandazioni',
     CMD_FAQ: 'domandecomuni',
+    CMD_MODULO_SPOSTAMENTI: 'modulospostamenti',
 
     /** DATA COMMANDS **/
     DATA_LAST: 'ultimidati',
