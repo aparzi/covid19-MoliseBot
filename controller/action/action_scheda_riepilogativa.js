@@ -25,10 +25,12 @@ const action_scheda_riepilogativa = async (ctx) => {
         }
 
         await bot.telegram.sendMessage(ctx.from.id, "Il documento inviato rappresenta l'ultimo bollettino nazionale registrato direttamente dalla protezione civile 🤞🏻🤞🏻");
+        await ctx.answerCbQuery();
 
     } catch (error) {
         console.error("[ERROR] => ", error);
         await bot.telegram.sendMessage(ctx.from.id, 'Non è stato possibile recuperare il bollettino nazionale odierno. Scusami!!!');
+        await ctx.answerCbQuery();
     }
 };
 
