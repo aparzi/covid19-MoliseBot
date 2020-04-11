@@ -46,7 +46,6 @@ bot.command(command.CMD_MODULO_SPOSTAMENTI, require('./controller/command/cmd_mo
 /** GENERAL COMMANDS **/
 bot.command(command.CMD_HELP, require('./controller/command/cmd_help'));
 bot.start(require('./controller/command/cmd_start'));
-bot.on('text', require('./controller/command/cmd_not_found'));
 
 /** DATA COMMANDS **/
 bot.command(command.DATA_LAST, require('./controller/command/cmd_last_data'));
