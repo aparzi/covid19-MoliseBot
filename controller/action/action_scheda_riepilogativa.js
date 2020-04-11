@@ -19,8 +19,9 @@ const action_scheda_riepilogativa = async (ctx) => {
             await bot.telegram.sendDocument(ctx.from.id, file);
         } else {
             // remove a day
-            date.setDate(date.getDate() - 1);
-            let file = `https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/schede-riepilogative/regioni/dpc-covid19-ita-scheda-regioni-${date}.pdf`;
+            let yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            let file = `https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/schede-riepilogative/regioni/dpc-covid19-ita-scheda-regioni-${yesterday}.pdf`;
             await bot.telegram.sendDocument(ctx.from.id, file);
         }
 
