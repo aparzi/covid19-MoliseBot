@@ -51,10 +51,11 @@ bot.start(require('./controller/command/cmd_start'));
 /** DATA COMMANDS **/
 bot.command(command.DATA_LAST, require('./controller/command/cmd_last_data'));
 
-/** CRONJOB **/
+/** CRONJOB - mm hh **/
 cron.schedule('15 09 * * *', require('./controller/cronjob/cron_test'));
 cron.schedule('20 18 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
 cron.schedule('30 18 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
+cron.schedule('30 12 * * *', require('./controller/cronjob/cron_asrem_riepilopaesi'));
 if (process.env.NODE_ENV == 'production') {
     cron.schedule('* * * * *', async function () {
         console.info("----- ESEGUITO JOB [CHIAMATA TEST] ------");
