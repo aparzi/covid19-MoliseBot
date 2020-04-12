@@ -10,6 +10,7 @@ module.exports = {
     CMD_RACCOMANDAZIONI: 'raccomandazioni',
     CMD_FAQ: 'domandecomuni',
     CMD_MODULO_SPOSTAMENTI: 'modulospostamenti',
+    CMD_ATTIVITA_APERTE: 'listaattivita',
 
     /** DATA COMMANDS **/
     DATA_LAST: 'ultimidati',
