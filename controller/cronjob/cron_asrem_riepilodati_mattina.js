@@ -20,8 +20,8 @@ const cron_asrem_riepilogodati_mattina = async () => {
             let users = await User.find({});
             await asyncForEach(users, async (user) => {
                 try {
-                    await bot.telegram.sendDocument(process.env.CHATID_TEST, file);
-                    await bot.telegram.sendMessage(process.env.CHATID_TEST, "Il documento inviato rappresenta il riepilogo dati del Molise delle ore 11. I dati sono rilasciati direttamente dall' ASREM (Azienda Sanitatia Regionale del Molise). 📊🏨");
+                    await bot.telegram.sendDocument(user.id_user, file);
+                    await bot.telegram.sendMessage(user.id_user, "Il documento inviato rappresenta il riepilogo dati del Molise delle ore 11. I dati sono rilasciati direttamente dall' ASREM (Azienda Sanitatia Regionale del Molise). 📊🏨");
                 } catch (error) {
                     console.error("[ ERRORE INVIO ASREM RIEPILOGO DATI MATTINA ] => ", error);
                     console.error("[ UTENTE NON NOTIFICATO ] => ", user);
