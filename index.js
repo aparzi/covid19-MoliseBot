@@ -67,4 +67,7 @@ bot.action(action.NATIONAL_DATA, require('./controller/action/action_scheda_riep
 bot.action(action.REGIONAL_DATA, require('./controller/action/action_riepilogo_dati'));
 bot.action(action.PROVINCE_DATA, require('./controller/action/action_dati_province'));
 
+// Default response
+bot.on('text', ctx => ctx.reply('Mi dispiace ma non riesco a capire cosa desideri. Prova il comando /help per visualizzare in cosa posso aiutarti. Grazie'));
+
 bot.startPolling();
