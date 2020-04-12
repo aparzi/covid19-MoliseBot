@@ -13,6 +13,7 @@ Ci penserò io ad aggiornarti, inviandoti delle notifiche nel momento in cui ci 
 /sintomi - Scopri cosa fare in caso di sintomi
 /raccomandazioni - Leggi le raccomandazioni da seguire
 /domandecomuni - Dai un'occhiata alle FAQ
+/listaattivita - Lista delle attività aperte
 
 <b>DATI PROTEZIONE CIVILE</b>
 /ultimidati
