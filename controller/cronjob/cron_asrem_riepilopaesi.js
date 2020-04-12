@@ -5,7 +5,7 @@ const bot = new telegraf(process.env.TOKEN_BOT);
 const User = require('../../model/user');
 const urlExist = require("url-exist");
 
-const cron_scheda_riepilogativa = async () => {
+const cron_asrem_riepilogopaesi = async () => {
     try {
         console.info("INVIO RISORSA ASREM RIEPILOGO PAESI");
 
@@ -42,4 +42,4 @@ async function asyncForEach(array, callback) {
     }
 }
 
-module.exports = cron_scheda_riepilogativa;
+module.exports = cron_asrem_riepilogopaesi;
