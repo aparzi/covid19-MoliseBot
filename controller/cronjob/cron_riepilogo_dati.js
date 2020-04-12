@@ -33,7 +33,7 @@ const cron_riepilogo_dati = async () => {
         if (dati_reg_molise && dati_prov_molise) {
             const header = `❕❗️ BOLLETTINO DEI DATI ORE 18 (Protezione Civile) ❕❗\n\n`;
             const subheader = `I dati aggiornati relativi alla regione Molise\n\n`;
-            const totali = `🛑 <b>CASI TOTALI</b> ${dati_reg_molise.totale_casi} (+${dati_reg_molise.nuovi_positivi}) \n ⭕️ <b>ATTUALMENTE POSITIVI</b> ${dati_reg_molise.totale_positivi} \n 🧪 <b>TAMPONI EFFETTUATI</b> ${dati_reg_molise.tamponi}`;
+            const totali = `🛑 <b>CASI TOTALI</b> ${dati_reg_molise.totale_casi} (+${dati_reg_molise.nuovi_positivi}) \n ⭕️ <b>ATTUALMENTE POSITIVI</b> ${dati_reg_molise.totale_positivi} \n 🧪 <b>TAMPONI EFFETTUATI</b> ${dati_reg_molise.tamponi} \n 🆕 <b>NUOVI CASI</b> ${dati_molise.nuovi_positivi}`;
 
             const hr = `\n--------------------------------------\n`;
 
