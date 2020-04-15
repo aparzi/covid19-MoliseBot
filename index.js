@@ -26,6 +26,8 @@ app.get('/test', function (req, res) {
 
 app.get('/bot/trigger/newfeature', require('./controller/cronjob/cron_new_features'));
 app.get('/bot/trigger/riepilogomolise', require('./controller/cronjob/cron_riepilogo_dati'));
+app.get('/bot/trigger/riepilogoitalia', require('./controller/cronjob/cron_scheda_riepilogativa'));
+
 app.get('/bot/trigger/riepilogopaesi', require('./controller/cronjob/cron_asrem_riepilopaesi'));
 app.get('/bot/trigger/riepilogodatimattina', require('./controller/cronjob/cron_asrem_riepilodati_mattina'));
 app.get('/bot/trigger/riepilogodatisera', require('./controller/cronjob/cron_asrem_riepilodati_sera'));
