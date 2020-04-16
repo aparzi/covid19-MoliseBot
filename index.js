@@ -59,8 +59,8 @@ bot.command(command.DATA_LAST, require('./controller/command/cmd_last_data'));
 
 /** CRONJOB - mm hh **/
 cron.schedule('15 09 * * *', require('./controller/cronjob/cron_test'));
-cron.schedule('20 18 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
-cron.schedule('30 18 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
+cron.schedule('45 18 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
+cron.schedule('50 18 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
 cron.schedule('00 13 * * *', require('./controller/cronjob/cron_asrem_riepilodati_mattina'));
 cron.schedule('00 20 * * *', require('./controller/cronjob/cron_asrem_riepilodati_sera'));
 cron.schedule('15 20 * * *', require('./controller/cronjob/cron_asrem_riepilopaesi'));
