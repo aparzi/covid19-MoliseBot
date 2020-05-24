@@ -31,6 +31,7 @@ app.get('/bot/trigger/riepilogoitalia', require('./controller/cronjob/cron_sched
 app.get('/bot/trigger/riepilogopaesi', require('./controller/cronjob/cron_asrem_riepilopaesi'));
 app.get('/bot/trigger/riepilogodatimattina', require('./controller/cronjob/cron_asrem_riepilodati_mattina'));
 app.get('/bot/trigger/riepilogodatisera', require('./controller/cronjob/cron_asrem_riepilodati_sera'));
+app.get('/bot/trigger/riepilogoseriestorica', require('./controller/cronjob/cron_asrem_seriestorica'));
 
 app.listen(process.env.PORT || 3000, function(){
     console.log("------------- SERVER START -------------");
@@ -59,11 +60,12 @@ bot.command(command.DATA_LAST, require('./controller/command/cmd_last_data'));
 
 /** CRONJOB - mm hh **/
 cron.schedule('15 09 * * *', require('./controller/cronjob/cron_test'));
-cron.schedule('45 18 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
-cron.schedule('50 18 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
-cron.schedule('00 13 * * *', require('./controller/cronjob/cron_asrem_riepilodati_mattina'));
+cron.schedule('30 18 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
+cron.schedule('40 18 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
+// cron.schedule('00 13 * * *', require('./controller/cronjob/cron_asrem_riepilodati_mattina'));
 cron.schedule('00 20 * * *', require('./controller/cronjob/cron_asrem_riepilodati_sera'));
-cron.schedule('15 20 * * *', require('./controller/cronjob/cron_asrem_riepilopaesi'));
+cron.schedule('15 20 * * *', require('./controller/cronjob/cron_asrem_seriestorica'));
+cron.schedule('30 20 * * *', require('./controller/cronjob/cron_asrem_riepilopaesi'));
 if (process.env.NODE_ENV == 'production') {
     cron.schedule('* * * * *', async function () {
         console.info("----- ESEGUITO JOB [CHIAMATA TEST] ------");
