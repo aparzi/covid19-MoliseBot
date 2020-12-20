@@ -48,6 +48,7 @@ bot.command(command.CMD_SINTOMI, require('./controller/command/cmd_sintomi'));
 bot.command(command.CMD_RACCOMANDAZIONI, require('./controller/command/cmd_raccomandazioni'));
 bot.command(command.CMD_FAQ, require('./controller/command/cmd_faq'));
 bot.command(command.CMD_MODULO_SPOSTAMENTI, require('./controller/command/cmd_modulo_spostamenti'));
+bot.command(command.CMD_MODULO_SPOSTAMENTI_NATALE, require('./controller/command/cmd_modulo_spostamenti_natale'));
 bot.command(command.CMD_AUTOCERTIFICAZIONE_CAMPIONATI_DILETTANTI, require('./controller/command/cmd_autocertificazione_campionati_dilettanti'));
 bot.command(command.CMD_ATTIVITA_APERTE, require('./controller/command/cmd_attivita_aperte'));
 
