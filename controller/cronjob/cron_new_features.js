@@ -13,7 +13,7 @@ const cron_new_features = async () => {
 
         await asyncForEach(users, async (user) => {
             try {
-                await bot.telegram.sendMessage(user.id_user, `Hey ${user.first_name} 👋🏻🤗 come stai? Spero tutto bene 😊🎄🎄 Nel farti gli auguri di Natale e un felice 2021, volevo ricordati che è possibile scaricare il nuovo modulo per gli spostamenti, valido per le festività natalizie eseguendo il comando <b>/modulospostamentinatale</b>`, {parse_mode: 'HTML'});
+                await bot.telegram.sendMessage(user.id_user, `Hey ${user.first_name} 👋🏻🤗 Volevo semplicemente avvisarti che da questo momento in poi ti aggiornerò anche sul piano vaccinale in Molise, inviandoti una notifica alle 12 e 30 🤗`, {parse_mode: 'HTML'});
 
             } catch (error) {
                 console.error("[ ERRORE MESSAGGIO RIEPILOGO DATI ] => ", error);

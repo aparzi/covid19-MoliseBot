@@ -17,6 +17,9 @@ module.exports = {
     /** DATA COMMANDS **/
     DATA_LAST: 'ultimidati',
 
+    /** VACCINI COMMANDS **/
+    CMD_DATI_VACCINO: 'dati_vaccino',
+
     /** GENERAL COMMANDS **/
     CMD_HELP: 'help',
 };

@@ -57,11 +57,17 @@ bot.command(command.CMD_ATTIVITA_APERTE, require('./controller/command/cmd_attiv
 bot.command(command.CMD_HELP, require('./controller/command/cmd_help'));
 bot.start(require('./controller/command/cmd_start'));
 
+
 /** DATA COMMANDS **/
 bot.command(command.DATA_LAST, require('./controller/command/cmd_last_data'));
 
+
+/** VACCINI COMMANDS **/
+bot.command(command.CMD_DATI_VACCINO, require('./controller/command/cmd_dati_vaccino'));
+
 /** CRONJOB - mm hh **/
 cron.schedule('15 09 * * *', require('./controller/cronjob/cron_test'));
+cron.schedule('30 12 * * *', require('./controller/cronjob/cron_dati_vaccino'));
 cron.schedule('30 18 * * *', require('./controller/cronjob/cron_riepilogo_dati'));
 cron.schedule('40 18 * * *', require('./controller/cronjob/cron_scheda_riepilogativa'));
 // cron.schedule('00 13 * * *', require('./controller/cronjob/cron_asrem_riepilodati_mattina'));
