@@ -17,7 +17,7 @@ const cron_dati_vaccino = async () => {
 
         let response = await axios.get(URL_VACCINI_SUMMARY_LATEST);
 
-        let dati_vaccino_molise = response?.data?.data.find(regione => regione.codice_regione_ISTAT == process.env.CODICE_REG_MOLISE);
+        let dati_vaccino_molise = response.data.data.find(regione => regione.codice_regione_ISTAT == process.env.CODICE_REG_MOLISE);
         console.log(dati_vaccino_molise);
 
         // Verifico che i dati della regione sono effettivamente presenti e notifico gli utenti
@@ -25,10 +25,10 @@ const cron_dati_vaccino = async () => {
             const header = `🧪🧪 PIANO VACCINALE REGIONE MOLISE \n\n`;
             const subheader = `Dati aggiornati del piano vaccinale in Molise\n\n`;
 
-            const dosi_consegnate = `📦️ <b>DOSI CONSEGNATE:</b> ${dati_vaccino_molise?.dosi_consegnate} \n`;
-            const dosi_somministrate = `✅ <b>DOSI SOMMINISTRATE:</b> ${dati_vaccino_molise?.dosi_somministrate} \n`;
-            const percentuale_somministrazione = `📊 <b>PERCENTUALE:</b> ${dati_vaccino_molise?.percentuale_somministrazione}% \n`;
-            const ultimo_aggiornamento = `📅 <b>AGGIORNAMENTO:</b> ${dati_vaccino_molise?.ultimo_aggiornamento.split('T')[0]}`;
+            const dosi_consegnate = `📦️ <b>DOSI CONSEGNATE:</b> ${dati_vaccino_molise.dosi_consegnate} \n`;
+            const dosi_somministrate = `✅ <b>DOSI SOMMINISTRATE:</b> ${dati_vaccino_molise.dosi_somministrate} \n`;
+            const percentuale_somministrazione = `📊 <b>PERCENTUALE:</b> ${dati_vaccino_molise.percentuale_somministrazione}% \n`;
+            const ultimo_aggiornamento = `📅 <b>AGGIORNAMENTO:</b> ${dati_vaccino_molise.ultimo_aggiornamento.split('T')[0]}`;
 
             await asyncForEach(users, async (user) => {
                 try {
