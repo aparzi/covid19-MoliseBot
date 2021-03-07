@@ -18,6 +18,9 @@ Ci penserò io ad aggiornarti, inviandoti delle notifiche nel momento in cui ci 
 <b>DATI PROTEZIONE CIVILE</b>
 /ultimidati
 
+<b>PIANO VACCINALE</b>
+/dati_vaccino
+
 Se hai delle segnalazioni da fare, richieste particolari oppure altri tipi di comunicazioni, puoi rivolgerti al seguente indirizzo email: angeloparziale94@gmail.com.\n\n
 Mi raccommando comportati da cittadino responsabile per vincere insieme questa battaglia 🇮🇹💪🏻\n\n`;
 
